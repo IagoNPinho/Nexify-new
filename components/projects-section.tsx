@@ -1,75 +1,104 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ExternalLink } from "lucide-react"
 
 const projects = [
   {
-    title: "Plataforma E-commerce de iPhones",
+    title: "Leadfy — Plataforma de Geração de Leads",
+    category: "MicroSaaS",
+    description:
+      "Plataforma SaaS focada em captação, organização e conversão de leads para negócios digitais.",
+    image: "/projects/leadfy.png",
+    url: "https://leadfy.vercel.app",
+    conceptual: false,
+  },
+  {
+    title: "Bem Pensado — Marcenaria Sob Medida",
+    category: "Site Institucional",
+    description:
+      "Site profissional para marcenaria, focado em apresentação de projetos e geração de orçamentos.",
+    image: "/projects/bempensado.png",
+    url: "https://bempensado.vercel.app",
+    conceptual: false,
+  },
+  {
+    title: "iPrime Store — E-commerce de iPhones",
     category: "E-commerce",
     description:
-      "Loja virtual completa com gestão de estoque, múltiplos meios de pagamento e integração com transportadoras.",
-    image: "/placeholder.svg?height=400&width=600",
+      "Loja virtual premium para venda de iPhones com foco em conversão, performance e design de alto padrão.",
+    image: "/projects/iphone-store.png",
+    url: "https://iprime-store.vercel.app",
+    conceptual: true,
   },
   {
-    title: "App de Gestão de Projetos",
+    title: "ProjectFlow — App de Gestão de Projetos",
     category: "SaaS",
     description:
-      "Sistema completo para gerenciamento de projetos com dashboards, relatórios e colaboração em tempo real.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    title: "Dashboard de Análise de Dados",
-    category: "Plataforma Digital",
-    description: "Painel de business intelligence com visualizações interativas e relatórios automatizados.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    title: "Landing Pages para Advogados",
-    category: "Landing Page",
-    description: "Páginas de alta conversão para escritórios de advocacia, otimizadas para Google Ads.",
-    image: "/placeholder.svg?height=400&width=600",
+      "Aplicação SaaS para gestão de projetos, tarefas e equipes com dashboards e relatórios.",
+    image: "/projects/projectflow.png",
+    url: "https://projectflow.vercel.app",
+    conceptual: true,
   },
 ]
 
+
+
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
+            setIsVisible(true)
+            observer.disconnect()
           }
         })
       },
       { threshold: 0.1 },
     )
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el, index) => {
-      ;(el as HTMLElement).style.animationDelay = `${index * 100}ms`
-      observer.observe(el)
-    })
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
 
     return () => observer.disconnect()
   }, [])
 
   return (
     <section id="projetos" ref={sectionRef} className="py-24 relative overflow-hidden">
-      {/* Background */}
+      {/* Background with glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-blue-950/10 to-background" />
+      <div className="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-blue-600/15 rounded-full animate-glow-drift blur-3xl" />
+      <div
+        className="absolute bottom-1/3 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full animate-glow-pulse blur-3xl"
+        style={{ animationDelay: "-3s" }}
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="animate-on-scroll opacity-0 duration-500 inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
+          <span
+            className={`inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4 transition-all duration-700 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Portfólio
           </span>
-          <h2 className="animate-on-scroll opacity-0 duration-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+          <h2
+            className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance transition-all duration-700 delay-100 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Nossos <span className="gradient-text">Projetos em Destaque</span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-500 text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p
+            className={`text-muted-foreground max-w-2xl mx-auto text-lg transition-all duration-700 delay-200 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
             Conheça alguns dos projetos que desenvolvemos para nossos clientes.
           </p>
         </div>
@@ -78,20 +107,35 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="animate-on-scroll opacity-0 duration-500 group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-purple-500/50 transition-all"
+              className={`group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-purple-500/50 transition-all duration-500 hover-glow ${
+                isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+              }`}
+              style={{
+                transitionDelay: isVisible ? `${300 + index * 150}ms` : "0ms",
+              }}
             >
+              {project.conceptual && (
+                <span
+                  title="Projeto demonstrativo desenvolvido para fins de portfólio"
+                  className="absolute top-4 right-4 text-[10px] uppercase tracking-wide px-2 py-1 rounded-full bg-white/10 backdrop-blur              border border-white/20 text-white/70 cursor-default"
+                >
+                  Projeto Conceitual
+                </span>
+              )}
+
               <div className="aspect-video overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <span className="text-xs font-medium text-purple-400 mb-2">{project.category}</span>
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex items-center gap-2 text-blue-400 text-sm font-medium">
+                <div className="flex items-center gap-2 text-blue-400 text-sm font-medium group-hover:translate-x-2 transition-transform duration-300">
                   Ver Projeto <ExternalLink className="w-4 h-4" />
                 </div>
               </div>
