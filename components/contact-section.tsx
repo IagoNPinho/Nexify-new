@@ -24,6 +24,12 @@ const serviceTypes = [
 export function ContactSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [name, setName] = useState("")
+  const [company, setCompany] = useState("")
+  const [whatsapp, setWhatsapp] = useState("")
+  const [email, setEmail] = useState("")
+  const [service, setService] = useState("")
+  const [message, setMessage] = useState("")
 
   useEffect(() => {
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
@@ -62,34 +68,35 @@ export function ContactSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Nome *</Label>
-                <Input id="name" placeholder="Seu nome completo" required className="bg-background" />
+                <Input id="name" placeholder="Seu nome completo" required className="bg-background" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="company">Empresa</Label>
-                <Input id="company" placeholder="Nome da empresa" className="bg-background" />
+                <Input id="company" placeholder="Nome da empresa" className="bg-background" value={empresa} onChange={(e) => setEmpresa(e.target.value)}/>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2">
                 <Label htmlFor="whatsapp">WhatsApp *</Label>
-                <Input id="whatsapp" type="tel" placeholder="(00) 00000-0000" required className="bg-background" />
+                <Input id="whatsapp" type="tel" placeholder="(00) 00000-0000" required className="bg-background" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">E-mail *</Label>
-                <Input id="email" type="email" placeholder="seu@email.com" required className="bg-background" />
+                <Input id="email" type="email" placeholder="seu@email.com" required className="bg-background" value={email}
+  onChange={(e) => setEmail(e.target.value)}/>
               </div>
             </div>
 
             <div className="mb-6 space-y-2">
               <Label htmlFor="service">Tipo de Serviço *</Label>
-              <Select required>
+              <Select required onValueChange={setService}>
                 <SelectTrigger className="bg-background">
                   <SelectValue placeholder="Selecione o tipo de serviço" />
                 </SelectTrigger>
                 <SelectContent>
                   {serviceTypes.map((type) => (
-                    <SelectItem key={type} value={type.toLowerCase()}>
+                    <SelectItem key={type} value={type}>
                       {type}
                     </SelectItem>
                   ))}
