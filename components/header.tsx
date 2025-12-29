@@ -36,7 +36,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <a href="#" className="flex items-center gap-2">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20OFICIAL-CKV8B8fcMFWdjD1iL7qv7yCUoRkB9h.png"
+              src="/images/design-mode/Logo%20OFICIAL.png"
               alt="Nexify Logo"
               width={120}
               height={40}
