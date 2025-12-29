@@ -100,15 +100,15 @@ export function HeroSection() {
           <div className="animate-on-load animate-fade-in-up cascade-delay-5 mt-16 flex flex-wrap justify-center gap-8 text-muted-foreground">
             <div className="flex items-center gap-2 group">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm group-hover:text-foreground transition-colors">+50 Projetos Entregues</span>
+              <span className="text-sm group-hover:text-foreground transition-colors">+30 Projetos Entregues</span>
             </div>
             <div className="flex items-center gap-2 group">
               <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" style={{ animationDelay: "0.2s" }} />
-              <span className="text-sm group-hover:text-foreground transition-colors">+35 Empresas Atendidas</span>
+              <span className="text-sm group-hover:text-foreground transition-colors">+20 Empresas Atendidas</span>
             </div>
             <div className="flex items-center gap-2 group">
               <div className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" style={{ animationDelay: "0.4s" }} />
-              <span className="text-sm group-hover:text-foreground transition-colors">+3 Anos de Experiência</span>
+              <span className="text-sm group-hover:text-foreground transition-colors">+2 Anos de Experiência</span>
             </div>
           </div>
         </div>
