@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
             <Image
-              src="/images/logo-20oficial.png"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20OFICIAL-20s0o6iDzcrkDxaXuEqQ1PVguKEzmk.png"
               alt="Nexify Logo"
               width={140}
               height={45}
@@ -52,13 +52,13 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-purple-400" />
                 <a href="mailto:contato@nexify.com.br" className="hover:text-foreground transition-colors">
-                  contato@nexify.com.br
+                  iagopinho@nexify.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-purple-400" />
                 <a href="tel:+5500000000000" className="hover:text-foreground transition-colors">
-                  (00) 00000-0000
+                  (85) 98822-4901
                 </a>
               </li>
               <li className="flex items-start gap-2">

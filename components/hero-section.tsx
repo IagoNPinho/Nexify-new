@@ -64,7 +64,7 @@ export function HeroSection() {
               size="lg"
               className="px-8 py-6 text-lg rounded-xl border-border hover:bg-secondary/50 transition-all hover:scale-105 bg-transparent"
             >
-              <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5585988224901" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Falar no WhatsApp
               </a>
@@ -75,15 +75,15 @@ export function HeroSection() {
           <div className="animate-on-scroll mt-16 flex flex-wrap justify-center gap-8 text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
-              <span className="text-sm">+120 Projetos Entregues</span>
+              <span className="text-sm">+50 Projetos Entregues</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-blue-500" />
-              <span className="text-sm">+50 Empresas Atendidas</span>
+              <span className="text-sm">+35 Empresas Atendidas</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-purple-500" />
-              <span className="text-sm">+5 Anos de Experiência</span>
+              <span className="text-sm">+3 Anos de Experiência</span>
             </div>
           </div>
         </div>
