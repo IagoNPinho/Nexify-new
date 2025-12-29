@@ -97,7 +97,7 @@ ${message || "Ainda não detalhado."}
               </div>
               <div className="space-y-2">
                 <Label htmlFor="company">Empresa</Label>
-                <Input id="company" placeholder="Nome da empresa" className="bg-background" value={empresa} onChange={(e) => setEmpresa(e.target.value)}/>
+                <Input id="company" placeholder="Nome da empresa" className="bg-background" value={company} onChange={(e) => setCompany(e.target.value)}/>
               </div>
             </div>
 
