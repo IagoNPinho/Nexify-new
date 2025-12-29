@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Logo%20OFICIAL-20s0o6iDzcrkDxaXuEqQ1PVguKEzmk.png"
+              src="/images/design-mode/Logo%20OFICIAL.png"
               alt="Nexify Logo"
               width={140}
               height={45}

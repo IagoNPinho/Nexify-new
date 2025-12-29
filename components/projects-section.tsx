@@ -135,9 +135,14 @@ export function ProjectsSection() {
                 <span className="text-xs font-medium text-purple-400 mb-2">{project.category}</span>
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-                <div className="flex items-center gap-2 text-blue-400 text-sm font-medium group-hover:translate-x-2 transition-transform duration-300">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-blue-400 text-sm font-medium group-hover:translate-x-2 transition-transform duration-300"
+                >
                   Ver Projeto <ExternalLink className="w-4 h-4" />
-                </div>
+                </a>
               </div>
               {/* Default overlay for touch devices */}
               <div className="p-6 md:hidden">
