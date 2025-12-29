@@ -39,10 +39,35 @@ export function ContactSection() {
   }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-  }
+  e.preventDefault()
+
+  const phone = "5585988224901"
+
+  const text = `
+Olá, tudo bem?
+
+Me chamo ${name}.
+${company ? `Empresa: ${company}` : ""}
+
+Tenho interesse em um projeto profissional.
+
+📌 Tipo de serviço: ${service}
+📞 WhatsApp: ${whatsapp}
+📧 E-mail: ${email}
+
+📝 Detalhes do projeto:
+${message || "Ainda não detalhado."}
+  `.trim()
+
+  const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`
+
+  setIsSubmitted(true)
+
+  window.open(whatsappUrl, "_blank")
+
+  setTimeout(() => setIsSubmitted(false), 3000)
+}
+
 
   return (
     <section id="contato" ref={sectionRef} className="py-24 relative overflow-hidden">
@@ -111,6 +136,8 @@ export function ContactSection() {
                 placeholder="Conte-nos mais sobre seu projeto..."
                 rows={4}
                 className="bg-background resize-none"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </div>
 

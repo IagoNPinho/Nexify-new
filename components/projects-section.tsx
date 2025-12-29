@@ -5,32 +5,44 @@ import { ExternalLink } from "lucide-react"
 
 const projects = [
   {
-    title: "Plataforma E-commerce de iPhones",
+    title: "Leadfy — Plataforma de Geração de Leads",
+    category: "MicroSaaS",
+    description:
+      "Plataforma SaaS focada em captação, organização e conversão de leads para negócios digitais.",
+    image: "/projects/leadfy.png",
+    url: "https://leadfy.vercel.app",
+    conceptual: false,
+  },
+  {
+    title: "Bem Pensado — Marcenaria Sob Medida",
+    category: "Site Institucional",
+    description:
+      "Site profissional para marcenaria, focado em apresentação de projetos e geração de orçamentos.",
+    image: "/projects/bempensado.png",
+    url: "https://bempensado.vercel.app",
+    conceptual: false,
+  },
+  {
+    title: "iPrime Store — E-commerce de iPhones",
     category: "E-commerce",
     description:
-      "Loja virtual completa com gestão de estoque, múltiplos meios de pagamento e integração com transportadoras.",
-    image: "/placeholder.svg?height=400&width=600",
+      "Loja virtual premium para venda de iPhones com foco em conversão, performance e design de alto padrão.",
+    image: "/projects/iphone-store.png",
+    url: "https://iprime-store.vercel.app",
+    conceptual: true,
   },
   {
-    title: "App de Gestão de Projetos",
+    title: "ProjectFlow — App de Gestão de Projetos",
     category: "SaaS",
     description:
-      "Sistema completo para gerenciamento de projetos com dashboards, relatórios e colaboração em tempo real.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    title: "Dashboard de Análise de Dados",
-    category: "Plataforma Digital",
-    description: "Painel de business intelligence com visualizações interativas e relatórios automatizados.",
-    image: "/placeholder.svg?height=400&width=600",
-  },
-  {
-    title: "Landing Pages para Advogados",
-    category: "Landing Page",
-    description: "Páginas de alta conversão para escritórios de advocacia, otimizadas para Google Ads.",
-    image: "/placeholder.svg?height=400&width=600",
+      "Aplicação SaaS para gestão de projetos, tarefas e equipes com dashboards e relatórios.",
+    image: "/projects/projectflow.png",
+    url: "https://projectflow.vercel.app",
+    conceptual: true,
   },
 ]
+
+
 
 export function ProjectsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
