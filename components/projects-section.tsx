@@ -114,6 +114,15 @@ export function ProjectsSection() {
                 transitionDelay: isVisible ? `${300 + index * 150}ms` : "0ms",
               }}
             >
+              {project.conceptual && (
+                <span
+                  title="Projeto demonstrativo desenvolvido para fins de portfólio"
+                  className="absolute top-4 right-4 text-[10px] uppercase tracking-wide px-2 py-1 rounded-full bg-white/10 backdrop-blur              border border-white/20 text-white/70 cursor-default"
+                >
+                  Projeto Conceitual
+                </span>
+              )}
+
               <div className="aspect-video overflow-hidden">
                 <img
                   src={project.image || "/placeholder.svg"}
