@@ -56,37 +56,24 @@ export function PricingSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
     elements?.forEach((el, index) => {
       ;(el as HTMLElement).style.animationDelay = `${index * 100}ms`
-      observer.observe(el)
+      el.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
     })
-
-    return () => observer.disconnect()
   }, [])
 
   return (
     <section id="precos" ref={sectionRef} className="py-24 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="animate-on-scroll opacity-0 duration-500 inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
+          <span className="animate-on-scroll inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
             Planos e Preços
           </span>
-          <h2 className="animate-on-scroll opacity-0 duration-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+          <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Investimento que <span className="gradient-text">Gera Retorno</span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-500 text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="animate-on-scroll text-muted-foreground max-w-2xl mx-auto text-lg">
             Soluções personalizadas para cada necessidade. Valores podem variar conforme escopo do projeto.
           </p>
         </div>
@@ -95,7 +82,7 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`animate-on-scroll opacity-0 duration-500 relative p-6 rounded-2xl border transition-all hover:shadow-lg ${
+              className={`animate-on-scroll relative p-6 rounded-2xl border transition-all hover:shadow-lg ${
                 plan.popular
                   ? "bg-gradient-to-b from-purple-600/10 to-blue-600/10 border-purple-500/50 hover:shadow-purple-500/20"
                   : "bg-card border-border hover:border-purple-500/30 hover:shadow-purple-500/10"

@@ -55,21 +55,10 @@ export function ResultsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
+    elements?.forEach((el) => {
+      el.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
+    })
   }, [])
 
   return (
@@ -80,13 +69,13 @@ export function ResultsSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="animate-on-scroll opacity-0 duration-500 inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
+          <span className="animate-on-scroll inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
             Nossos Resultados
           </span>
-          <h2 className="animate-on-scroll opacity-0 duration-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+          <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Resultados que <span className="gradient-text">Falam por Si</span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-500 text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="animate-on-scroll text-muted-foreground max-w-2xl mx-auto text-lg">
             Números que demonstram nosso compromisso com a excelência e a satisfação dos nossos clientes.
           </p>
         </div>
@@ -95,7 +84,7 @@ export function ResultsSection() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="animate-on-scroll opacity-0 duration-500 text-center p-8 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:border-purple-500/50 transition-all group"
+              className="animate-on-scroll text-center p-8 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:border-purple-500/50 transition-all group"
             >
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-2 group-hover:scale-110 transition-transform">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />

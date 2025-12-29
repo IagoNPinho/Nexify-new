@@ -36,24 +36,11 @@ export function ProjectsSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
     elements?.forEach((el, index) => {
       ;(el as HTMLElement).style.animationDelay = `${index * 100}ms`
-      observer.observe(el)
+      el.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
     })
-
-    return () => observer.disconnect()
   }, [])
 
   return (
@@ -63,13 +50,13 @@ export function ProjectsSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <span className="animate-on-scroll opacity-0 duration-500 inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
+          <span className="animate-on-scroll inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
             Portfólio
           </span>
-          <h2 className="animate-on-scroll opacity-0 duration-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+          <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Nossos <span className="gradient-text">Projetos em Destaque</span>
           </h2>
-          <p className="animate-on-scroll opacity-0 duration-500 text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="animate-on-scroll text-muted-foreground max-w-2xl mx-auto text-lg">
             Conheça alguns dos projetos que desenvolvemos para nossos clientes.
           </p>
         </div>
@@ -78,7 +65,7 @@ export function ProjectsSection() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="animate-on-scroll opacity-0 duration-500 group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-purple-500/50 transition-all"
+              className="animate-on-scroll group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-purple-500/50 transition-all"
             >
               <div className="aspect-video overflow-hidden">
                 <img

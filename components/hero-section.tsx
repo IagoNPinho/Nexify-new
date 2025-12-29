@@ -8,21 +8,10 @@ export function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
     const elements = heroRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
+    elements?.forEach((el) => {
+      el.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
+    })
   }, [])
 
   return (
@@ -42,22 +31,22 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="animate-on-scroll opacity-0 duration-700">
+          <div className="animate-on-scroll">
             <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-6">
               🚀 Software House Premium
             </span>
           </div>
 
-          <h1 className="animate-on-scroll opacity-0 duration-700 delay-150 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-balance">
+          <h1 className="animate-on-scroll text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-balance">
             Soluções Digitais Sob Medida para <span className="gradient-text">Empresas que Querem Crescer Online</span>
           </h1>
 
-          <p className="animate-on-scroll opacity-0 duration-700 delay-300 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty">
+          <p className="animate-on-scroll text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty">
             Transformamos suas ideias em soluções digitais de alta performance. Desenvolvimento web, e-commerce,
             automação e inteligência artificial para escalar seu negócio.
           </p>
 
-          <div className="animate-on-scroll opacity-0 duration-700 delay-500 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="animate-on-scroll flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               asChild
               size="lg"
@@ -83,7 +72,7 @@ export function HeroSection() {
           </div>
 
           {/* Trust Indicators */}
-          <div className="animate-on-scroll opacity-0 duration-700 delay-700 mt-16 flex flex-wrap justify-center gap-8 text-muted-foreground">
+          <div className="animate-on-scroll mt-16 flex flex-wrap justify-center gap-8 text-muted-foreground">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-green-500" />
               <span className="text-sm">+120 Projetos Entregues</span>

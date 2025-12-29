@@ -26,21 +26,10 @@ export function ContactSection() {
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
-          }
-        })
-      },
-      { threshold: 0.1 },
-    )
-
     const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
+    elements?.forEach((el) => {
+      el.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
+    })
   }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -58,21 +47,18 @@ export function ContactSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <span className="animate-on-scroll opacity-0 duration-500 inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
+            <span className="animate-on-scroll inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 border border-blue-500/20 text-sm font-medium text-blue-400 mb-4">
               Entre em Contato
             </span>
-            <h2 className="animate-on-scroll opacity-0 duration-500 text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+            <h2 className="animate-on-scroll text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
               Solicite seu <span className="gradient-text">Orçamento</span>
             </h2>
-            <p className="animate-on-scroll opacity-0 duration-500 text-muted-foreground text-lg">
+            <p className="animate-on-scroll text-muted-foreground text-lg">
               Preencha o formulário abaixo e entraremos em contato em até 24 horas.
             </p>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="animate-on-scroll opacity-0 duration-500 p-8 rounded-2xl bg-card border border-border"
-          >
+          <form onSubmit={handleSubmit} className="animate-on-scroll p-8 rounded-2xl bg-card border border-border">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Nome *</Label>
